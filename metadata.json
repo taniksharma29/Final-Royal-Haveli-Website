@@ -1,0 +1,6 @@
+{
+  "name": "Royal Haveli Fine Dining",
+  "description": "An elegant fine dining Indian restaurant homepage clone with premium styling and scroll effects.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
