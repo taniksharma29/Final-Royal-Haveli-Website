@@ -126,12 +126,9 @@ export default function App() {
   const nameInputRef = useRef<HTMLInputElement>(null);
 
   // Helper to construct fully qualified image URLs pointing to the main repository assets
-  const getImgUrl = (src: string) => {
-    if (src.startsWith("assets/")) {
-      return `https://taniksharma29.github.io/Last-update/${src}`;
-    }
-    return src;
-  };
+const getImgUrl = (src: string) => {
+  return `/${src}`;
+};
 
   // Navigates between page views and automatically scrolls back to the top
   const navigateTo = (page: "home" | "menu" | "contact") => {
