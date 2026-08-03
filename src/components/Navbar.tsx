@@ -38,7 +38,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               aria-label="Royal Haveli brand homepage logo"
             >
               <img
-                src={getImgUrl("./assets/images/logo.png")}
+                src={getImgUrl("assets/images/logo.png")}
                 alt="Royal Haveli Logo"
                 style={{ height: "60px", width: "auto" }}
                 fetchPriority="high"
