@@ -1,4 +1,5 @@
 import React from "react";
+import logo from "../assets/images/logo.png";
 
 interface NavbarProps {
   currentPage: "home" | "menu" | "contact";
@@ -38,7 +39,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               aria-label="Royal Haveli brand homepage logo"
             >
               <img
-                src={getImgUrl("assets/images/logo.png")}
+                src={logo}
                 alt="Royal Haveli Logo"
                 style={{ height: "60px", width: "auto" }}
                 fetchPriority="high"
@@ -134,7 +135,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               aria-label="Royal Haveli brand drawer homepage logo"
             >
               <img
-                src={getImgUrl("assets/images/logo.png")}
+                src={logo}
                 alt="Royal Haveli Logo"
                 style={{ height: "50px", width: "auto" }}
                 decoding="async"
