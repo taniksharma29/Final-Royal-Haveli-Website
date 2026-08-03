@@ -29,7 +29,7 @@ export const Footer: React.FC<FooterProps> = ({
               aria-label="Royal Haveli brand footer home link"
             >
               <img
-                src={getImgUrl("assets/images/logo.png")}
+                src={getImgUrl("./assets/images/logo.png")}
                 alt="Royal Haveli Logo Footer"
                 style={{ height: "70px", marginBottom: "20px" }}
                 loading="lazy"
