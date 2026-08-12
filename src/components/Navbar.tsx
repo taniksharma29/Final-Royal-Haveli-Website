@@ -8,7 +8,6 @@ interface NavbarProps {
   isMobileMenuOpen: boolean;
   setIsMobileMenuOpen: (open: boolean) => void;
   setIsModalOpen: (open: boolean) => void;
-  getImgUrl: (src: string) => string;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -18,7 +17,6 @@ export const Navbar: React.FC<NavbarProps> = ({
   isMobileMenuOpen,
   setIsMobileMenuOpen,
   setIsModalOpen,
-  getImgUrl,
 }) => {
   return (
     <>
@@ -41,7 +39,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               <img
                 src={logo}
                 alt="Royal Haveli Logo"
-                style={{ height: "60px", width: "auto" }}
+                className="navbar-logo"
                 fetchPriority="high"
                 decoding="async"
               />
@@ -137,7 +135,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               <img
                 src={logo}
                 alt="Royal Haveli Logo"
-                style={{ height: "50px", width: "auto" }}
+                className="navbar-logo navbar-logo-mobile"
                 decoding="async"
               />
             </a>

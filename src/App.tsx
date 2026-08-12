@@ -12,6 +12,7 @@ import { BookingModal } from "./components/BookingModal";
 import { MarqueeSlider } from "./components/MarqueeSlider";
 import mainImg from "./assets/main.png";
 import newImg from "./assets/new.png";
+import logo from "./assets/images/logo.png";
 import royalHaveli from "./assets/images/royal-haveli-dark.png";
 import cateringServiceImg from "./assets/images/catering-services.png";
 import birthdayServiceImg from "./assets/images/birthday-elebrations.png";
@@ -468,7 +469,7 @@ const getImgUrl = (src: string) => {
             <div className="splash-brand-content">
               <div className="splash-logo-container">
                 <img
-                  src={getImgUrl("assets/images/logo.png")}
+                  src={logo}
                   alt="Royal Haveli Logo Cinematic"
                   className="splash-logo"
                   fetchPriority="high"
@@ -509,7 +510,6 @@ const getImgUrl = (src: string) => {
         isMobileMenuOpen={isMobileMenuOpen}
         setIsMobileMenuOpen={setIsMobileMenuOpen}
         setIsModalOpen={setIsModalOpen}
-        getImgUrl={getImgUrl}
       />
 
       {/* ==================== HOME PAGE VIEW ==================== */}
@@ -530,7 +530,7 @@ const getImgUrl = (src: string) => {
               <div className="hero-text">
                 <div className="badge-icon">
                   <img
-                    src={getImgUrl("assets/images/logo.png")}
+                    src={logo}
                     alt="Royal Haveli Logo Icon"
                     width={140}
                     height={140}
@@ -1289,7 +1289,6 @@ const getImgUrl = (src: string) => {
       <Footer
         navigateTo={navigateTo}
         setIsModalOpen={setIsModalOpen}
-        getImgUrl={getImgUrl}
       />
 
       {/* ==================== RESERVATION FORM MODAL ==================== */}

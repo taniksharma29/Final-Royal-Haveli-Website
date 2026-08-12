@@ -1,15 +1,14 @@
 import React from "react";
+import logo from "../assets/images/logo.png";
 
 interface FooterProps {
   navigateTo: (page: "home" | "menu" | "contact") => void;
   setIsModalOpen: (open: boolean) => void;
-  getImgUrl: (src: string) => string;
 }
 
 export const Footer: React.FC<FooterProps> = ({
   navigateTo,
   setIsModalOpen,
-  getImgUrl,
 }) => {
   return (
     <footer id="footer" className="footer" aria-label="Restaurant footer & quick navigation links">
@@ -25,13 +24,12 @@ export const Footer: React.FC<FooterProps> = ({
                 e.preventDefault();
                 navigateTo("home");
               }}
-              style={{ display: "inline-flex", cursor: "pointer" }}
               aria-label="Royal Haveli brand footer home link"
             >
               <img
-                src={getImgUrl("./assets/images/logo.png")}
+                src={logo}
                 alt="Royal Haveli Logo Footer"
-                style={{ height: "70px", marginBottom: "20px" }}
+                className="footer-logo-img"
                 loading="lazy"
                 decoding="async"
                 referrerPolicy="no-referrer"

@@ -230,6 +230,54 @@ h6 {
   gap: 20px;
 }
 
+.navbar-logo {
+  height: 62px;
+  width: auto;
+  max-width: 180px;
+}
+
+.navbar-logo-mobile {
+  height: 50px;
+  width: auto;
+}
+
+.footer-logo-img {
+  height: 66px;
+  width: auto;
+  object-fit: contain;
+  margin-bottom: 18px;
+}
+
+@media (max-width: 1024px) {
+  .navbar-logo {
+    height: 56px;
+  }
+
+  .footer-logo-img {
+    height: 60px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar-logo {
+    height: 50px;
+  }
+
+  .footer-logo-img {
+    height: 54px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-logo {
+    height: 44px;
+  }
+
+  .footer-logo-img {
+    height: 48px;
+  }
+}
+
 .icon-btn {
   background: none;
   border: none;
