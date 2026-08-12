@@ -128,6 +128,14 @@ export default function App() {
 
   // Helper to construct fully qualified image URLs pointing to the main repository assets
 const getImgUrl = (src: string) => {
+  if (
+    src.startsWith("http://") ||
+    src.startsWith("https://") ||
+    src.startsWith("/") ||
+    src.startsWith("data:")
+  ) {
+    return src;
+  }
   return `/${src}`;
 };
 
