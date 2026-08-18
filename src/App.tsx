@@ -89,6 +89,7 @@ export default function App() {
   const [contactSubmitState, setContactSubmitState] = useState<
     "idle" | "processing" | "success"
   >("idle");
+  const [contactError, setContactError] = useState<string | null>(null);
 
   // Premium Cinematic Website Splash Screen States
   const [showSplash, setShowSplash] = useState(true);
@@ -309,7 +310,7 @@ const getImgUrl = (src: string) => {
     setBookingGeneralError("");
 
     try {
-      const response = await fetch("https://formsubmit.co/ajax/taniksharma29@gmail.com", {
+      const response = await fetch("https://formsubmit.co/ajax/royalhavelisj@gmail.com", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -409,17 +410,54 @@ const getImgUrl = (src: string) => {
     }, 1200);
   };
 
-  // 7. Contact form simulated submission
-  const handleContactSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  // 7. Contact form submission handles server-side email sending
+  const handleContactSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (contactSubmitState === "processing") {
+      return;
+    }
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    const name = String(formData.get("c-name") || "").trim();
+    const email = String(formData.get("c-email") || "").trim();
+    const phone = String(formData.get("c-phone") || "").trim();
+    const subject = String(formData.get("c-subject") || "").trim();
+    const message = String(formData.get("c-message") || "").trim();
+
     setContactSubmitState("processing");
-    setTimeout(() => {
+    setContactError(null);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          phone,
+          subject,
+          message,
+        }),
+      });
+
+      const data = await response.json();
+      if (!response.ok || data?.success !== true) {
+        throw new Error(data?.error || "Failed to send message. Please try again.");
+      }
+
       setContactSubmitState("success");
       setTimeout(() => {
         setContactSubmitState("idle");
-        (e.target as HTMLFormElement).reset();
+        form.reset();
       }, 1500);
-    }, 1200);
+    } catch (error: any) {
+      console.error("Contact submission error:", error);
+      setContactError(error?.message || "Failed to send message. Please try again.");
+      setContactSubmitState("idle");
+    }
   };
 
   // Filters for Homepage Signature dishes
@@ -1259,6 +1297,11 @@ const getImgUrl = (src: string) => {
                       </>
                     )}
                   </button>
+                  {contactError && (
+                    <p className="inline-error" role="alert" style={{ marginTop: "16px" }}>
+                      {contactError}
+                    </p>
+                  )}
                 </form>
               </div>
             </div>
